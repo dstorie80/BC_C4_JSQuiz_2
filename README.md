@@ -20,7 +20,7 @@ This project was created to get a better understanding on the inner workings of 
 ## Installation
 
 To pull the rep files:
-1. Go to my git hub repo (https://github.com/dstorie80/BC_C4_JSQuiz) 
+1. Go to my git hub repo (https://github.com/dstorie80/BC_C4_JSQuiz_2) 
 2. Click on the code button and select SSH
 3. navigate git bash to a designated folder of your chosing (CD <filepath/> [if a new folder needs to be created, you can use the mkdir command in git bash])
 4. Pull the latest update from git using the clone command in git bash (git clone <repo url>)
@@ -30,9 +30,9 @@ To pull the rep files:
 
 ## Usage
 
-To access the website you will need to follow this published link - https://dstorie80.github.io/BC_C4_JSQuiz/
+To access the website you will need to follow this published link - [https://dstorie80.github.io/BC_C4_JSQuiz/](https://dstorie80.github.io/BC_C4_JSQuiz_2/)
 
-To access the latest repo you will need to follow this github rep link - https://github.com/dstorie80/BC_C4_JSQuiz.git
+To access the latest repo you will need to follow this github rep link - [https://github.com/dstorie80/BC_C4_JSQuiz.git](https://github.com/dstorie80/BC_C4_JSQuiz_2.git)
 
 The landing page gives you two options, you can either click the start quiz button to begin the quiz, or you can click the view high scores button to see all the stored high scores.
 
