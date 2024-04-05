@@ -35,7 +35,7 @@ h1 {
 
 .timer {
     position: absolute;
-    top: 15px;
+    top: -2px;
     right: 15px;
 }
 
@@ -62,6 +62,72 @@ h1 {
     justify-content: center;
 }
 
-.quiz {
-    
+#questions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+    position: relative;
 }
+
+#question-text {
+    text-align: center;
+}
+
+
+button.option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin: 10px;
+    padding: 10px;
+    width: 50%;
+    background-color: #f0f0f0;
+    border: 1px solid #000;
+    border-radius: 5px;
+}
+
+#options {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#answer-result {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 30px;
+    border-top: 1px solid black;
+    padding-top: 20px;
+}
+
+
+#quiz-end {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+    top: 15%;
+    position: relative;
+}
+
+#quiz-end h2 {
+    text-align: center;
+    font-size: 50px;
+}
+
+#quiz-end p {
+    text-align: left;
+    margin: 10px;
+    left: 75px;
+    position: relative;
+}
+
+
