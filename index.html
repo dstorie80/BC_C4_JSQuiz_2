@@ -9,6 +9,7 @@
 <body>
     <div class="container">
         <header>
+            <!-- Main container that holds the timer and highscores button -->
             <div class="highscores">
                 <button id="highscores">View High Scores</button>
             </div>
@@ -16,37 +17,43 @@
                 <p>Time:<span id="timer">0</span></p>
             </div>
         </header>
-        <div class="quiz">
-            <div id="quiz-start">
-                <h1>JS Quiz</h1>
-                <p>Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your score/time by ten seconds!</p>
-                <button id="start">Start Quiz</button>
+        <div class="quizContainer">
+            <!-- Quiz Startup div -->
+            <div class="quiz">
+                <div id="quiz-start">
+                    <h1>JS Quiz</h1>
+                    <p>Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your score/time by ten seconds!</p>
+                    <button id="start">Start Quiz</button>
+                </div>
             </div>
-        </div>
-        <div class="hide" id="questions">
-            <h2 id="question-text"></h2>
-                <div class="option" id="options"></div>
-        </div>
-        <div class="hide" id="quiz-end">
-            <h2>Great Job!!</h2>
-            <p>Your final score is: <span id="final-score"></span></p>
-            <p>Enter your initials:
-                <input type="text" id="name" max="3"></input>
+            <!-- Quiz questions div-->
+            <div class="hide" id="questions">
+                <h2 id="question-text"></h2>
+                    <div class="option" id="options"></div>
+            </div>
+            <!-- End quiz div to enter scores -->
+            <div class="hide" id="quiz-end">
+                <h2>Great Job!!</h2>
+                <p>Your final score is: <span id="final-score"></span></p>
+                <p>Enter your initials:
+                    <input type="text" id="name" max="3"></input>
                     <button id="submit-score">Submit</button>
-            </p>
-        </div>
-        <div class="hide" id="game-over">
-            <h2>Game Over</h2>
-            <p>Sorry you ran out of time.</p>
-            <p>Please try again</p>
-            <button id="restart">Restart</button>
-        </div>
-        <div class="hide" id="highscore">
-            <h2>High Scores</h2>
-            <ol id="highscores-list"></ol>
-            <button id="go-back">Go Back</button>
-            <button id="clear">Clear High Scores</button>
-        </div>
+                </p>
+            </div>
+            <!-- Game over div when the time runs out -->
+            <div class="hide" id="game-over">
+                <h2>Game Over</h2>
+                <p>Sorry you ran out of time.</p>
+                <p>Please try again</p>
+                <button id="gorestart">Restart</button>
+            </div>    
+            <!-- Highscore div to display highscores -->
+            <div class="hide" id="highscore">
+                <h2>High Scores</h2>
+                <ol id="highscore-list"></ol>
+                <button id="clear">Clear High Scores</button>
+                <button id="restart">Restart</button>
+            </div>
     </div>
 </body>
     <script src="./assets/js/index.js"></script>

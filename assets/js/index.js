@@ -1,4 +1,6 @@
-//Quiz Questions
+//--------------------------------------------------------------------------------------//
+//                                 Quiz Questions                                       //
+//--------------------------------------------------------------------------------------//
 
 const questions = [
   {
@@ -39,14 +41,22 @@ const questions = [
   },
 ];
 
+//--------------------------------------------------------------------------------------//
+//                                Start the quiz                                        //
+//--------------------------------------------------------------------------------------//
+
 document.getElementById("start").addEventListener("click", function () {
-  document.getElementById("quiz-start").style.display = "none"; // Hide the div with id "quiz"
+  document.getElementById("quiz-start").style.display = "none";
   document.getElementById("questions").style.display = "block";
   document.getElementById("timer").textContent = "70";
   document.getElementById("timer").style.color = "green";
   startTimer();
   displayQuestion(0);
 });
+
+//--------------------------------------------------------------------------------------//
+//                           Displays the first question                                //
+//--------------------------------------------------------------------------------------//
 
 function displayQuestion(index) {
   const question = questions[index];
@@ -70,8 +80,12 @@ function displayQuestion(index) {
   });
 }
 
+//--------------------------------------------------------------------------------------//
+//                                Checks answers                                        //
+//--------------------------------------------------------------------------------------//
+
 function checkAnswer(selectedAnswer, correctAnswer) {
-  let answerResult = document.getElementById("answer-result"); // Changed const to let
+  let answerResult = document.getElementById("answer-result");
   if (!answerResult) {
     const newAnswerResult = document.createElement("div");
     newAnswerResult.id = "answer-result";
@@ -88,7 +102,11 @@ function checkAnswer(selectedAnswer, correctAnswer) {
   }
 }
 
-let time; // Declare time as a global variable
+//--------------------------------------------------------------------------------------//
+//                                  Timer settings                                      //
+//--------------------------------------------------------------------------------------//
+
+let time;
 
 function startTimer() {
   const timerElement = document.getElementById("timer");
@@ -129,11 +147,22 @@ function reduceTimer() {
   document.getElementById("timer").textContent = time;
 }
 
+//--------------------------------------------------------------------------------------//
+//                                 Quiz Questions                                       //
+//--------------------------------------------------------------------------------------//
+
 document.getElementById("submit-score").addEventListener("click", function () {
   const name = document.getElementById("name").value;
-  const finalScore = document.getElementById("final-score").textContent;
-  const highScores = JSON.parse(localStorage.getItem("highScores")) || [];
+  const finalScore = parseInt(
+    document.getElementById("final-score").textContent
+  );
+  let highScores = JSON.parse(localStorage.getItem("highScores")) || [];
   highScores.push({ name, finalScore });
+
+  // Sort the high scores in descending order
+  highScores.sort((a, b) => b.finalScore - a.finalScore);
+
+  // Store the updated highScores array into localStorage
   localStorage.setItem("highScores", JSON.stringify(highScores));
 
   // Hide the quiz-end div
@@ -143,7 +172,7 @@ document.getElementById("submit-score").addEventListener("click", function () {
   document.getElementById("highscore").style.display = "block";
 
   // Clear the highscores-list
-  const highScoresList = document.getElementById("highscores-list");
+  const highScoresList = document.getElementById("highscore-list");
   highScoresList.innerHTML = "";
 
   // Add all the high scores to the highscores-list
@@ -152,12 +181,99 @@ document.getElementById("submit-score").addEventListener("click", function () {
     scoreItem.textContent = `${score.name} - ${score.finalScore}`;
     highScoresList.appendChild(scoreItem);
   });
+});
 
-  document.getElementById("restart").addEventListener("click", function () {
-    // Hide the highscore div
-    document.getElementById("highscore").style.display = "none";
+//--------------------------------------------------------------------------------------//
+//                         Button - clear scores functionality                          //
+//--------------------------------------------------------------------------------------//
 
-    // Show the quiz-start div
-    document.getElementById("quiz-start").style.display = "block";
+document.getElementById("clear").addEventListener("click", function () {
+  // Clear the localStorage
+  localStorage.removeItem("highScores");
+
+  // Clear the highscores-list
+  const highScoresList = document.getElementById("highscore-list");
+  highScoresList.innerHTML = "";
+});
+
+//--------------------------------------------------------------------------------------//
+//                           Button - Submit scores functionality                       //
+//--------------------------------------------------------------------------------------//
+
+document.getElementById("submit-score").addEventListener("click", function () {
+  var highscoreDiv = document.getElementById("highscore");
+  if (window.getComputedStyle(highscoreDiv).display !== "none") {
+    document.body.classList.add("highscore-active");
+  }
+});
+
+//--------------------------------------------------------------------------------------//
+//                            Button - restart functionality                            //
+//--------------------------------------------------------------------------------------//
+
+document.addEventListener("DOMContentLoaded", function () {
+  document.addEventListener("click", function (event) {
+    if (event.target.id === "restart") {
+      // Hide the highscore div
+      document.getElementById("highscore").style.display = "none";
+
+      // Show the quiz-start div
+      document.getElementById("quiz-start").style.display = "block";
+
+      // Show the highscores button
+      document.getElementById("highscores").style.display = "block";
+
+      // Change the background of the body back to original
+      document.body.classList.remove("highscore-active");
+    }
+  });
+});
+
+//--------------------------------------------------------------------------------------//
+//                            Button - start functionality                              //
+//--------------------------------------------------------------------------------------//
+
+document.addEventListener("DOMContentLoaded", function () {
+  document.getElementById("start").addEventListener("click", function () {
+    // Hide the highscores button
+    document.getElementById("highscores").style.display = "none";
+  });
+
+  document.getElementById("highscores").addEventListener("click", function () {
+    // Hide the quiz-start div
+    document.getElementById("quiz-start").style.display = "none";
+
+    // Show the highscore div
+    document.getElementById("highscore").style.display = "block";
+
+    // Change the background of the body
+    document.body.classList.add("highscore-active");
+  });
+});
+
+//--------------------------------------------------------------------------------------//
+//                      Button - game over restart functionality                        //
+//--------------------------------------------------------------------------------------//
+
+document.addEventListener("DOMContentLoaded", function () {
+  document.addEventListener("click", function (event) {
+    const timerDiv = document.querySelector(".timer");
+    if (event.target.id === "gorestart") {
+      // Hide the highscore div
+      document.getElementById("game-over").style.display = "none";
+
+      // Show the quiz-start div
+      document.getElementById("quiz-start").style.display = "block";
+
+      // Show the highscores button
+      document.getElementById("highscores").style.display = "block";
+
+      // Change the background of the body back to original
+      document.body.classList.remove("highscore-active");
+
+      // Set the timer message back to "Time:"
+      timerDiv.innerHTML = "<p>Time:<span id='timer'>0</span></p>";
+      timerDiv.style.color = "black";
+    }
   });
 });
