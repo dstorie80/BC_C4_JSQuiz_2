@@ -148,7 +148,7 @@ function reduceTimer() {
 }
 
 //--------------------------------------------------------------------------------------//
-//                                 Quiz Questions                                       //
+//                                   Score Data                                         //
 //--------------------------------------------------------------------------------------//
 
 document.getElementById("submit-score").addEventListener("click", function () {
