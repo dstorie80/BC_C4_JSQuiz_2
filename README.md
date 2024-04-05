@@ -30,9 +30,9 @@ To pull the rep files:
 
 ## Usage
 
-To access the website you will need to follow this published link - [https://dstorie80.github.io/BC_C4_JSQuiz/](https://dstorie80.github.io/BC_C4_JSQuiz_2/)
+To access the website you will need to follow this published link - [https://dstorie80.github.io/BC_C4_JSQuiz_2/](https://dstorie80.github.io/BC_C4_JSQuiz_2/)
 
-To access the latest repo you will need to follow this github rep link - [https://github.com/dstorie80/BC_C4_JSQuiz.git](https://github.com/dstorie80/BC_C4_JSQuiz_2.git)
+To access the latest repo you will need to follow this github rep link - [https://github.com/dstorie80/BC_C4_JSQuiz_2.git](https://github.com/dstorie80/BC_C4_JSQuiz_2.git)
 
 The landing page gives you two options, you can either click the start quiz button to begin the quiz, or you can click the view high scores button to see all the stored high scores.
 
